@@ -1,0 +1,42 @@
+﻿@model List<AppView.Models.XeThue>
+
+<h2>Danh sách Xe Thuê</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Xe</th>
+            <th>Hãng Xe</th>
+            <th>Ngày Thuê</th>
+            <th>Ngày Trả</th>
+            <th>Trạng Thái</th>
+            <th>Giá Thuê Mỗi Ngày</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var stt = 1;
+        }
+        @foreach (var xe in Model)
+        {
+            <tr>
+                <td>@stt</td>
+                <td>@xe.TenXe</td>
+                <td>@xe.HangXe</td>
+                <td>@xe.NgayThue.ToShortDateString()</td>
+                <td>@xe.NgayTra.ToShortDateString()</td>
+                <td>@xe.TrangThai</td>
+                <td>@xe.GiaThueMoiNgay</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = xe.ID })" class="btn btn-warning">Sửa</a>
+                    <a href="@Url.Action("Delete", new { id = xe.ID })" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+            stt++;
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Tạo mới Xe Thuê</a>

@@ -1,0 +1,36 @@
+﻿@model AppView.Models.XeThue
+
+<h2>Sửa Xe Thuê</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <div class="form-group">
+        <label for="TenXe">Tên Xe</label>
+        <input type="text" class="form-control" id="TenXe" name="TenXe" value="@Model.TenXe" />
+    </div>
+    <div class="form-group">
+        <label for="HangXe">Hãng Xe</label>
+        <input type="text" class="form-control" id="HangXe" name="HangXe" value="@Model.HangXe" />
+    </div>
+    <div class="form-group">
+        <label for="NgayThue">Ngày Thuê</label>
+        <input type="date" class="form-control" id="NgayThue" name="NgayThue" value="@Model.NgayThue.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group">
+        <label for="NgayTra">Ngày Trả</label>
+        <input type="date" class="form-control" id="NgayTra" name="NgayTra" value="@Model.NgayTra.ToString("yyyy-MM-dd")" />
+    </div>
+    <div class="form-group">
+        <label for="TrangThai">Trạng Thái</label>
+        <select class="form-control" id="TrangThai" name="TrangThai">
+            <option value="Có sẵn">Có sẵn</option>
+            <option value="Đang thuê">Đang thuê</option>
+            <option value="Bảo trì">Bảo trì</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="GiaThueMoiNgay">Giá Thuê Mỗi Ngày</label>
+        <input type="number" class="form-control" id="GiaThueMoiNgay" name="GiaThueMoiNgay" value="@Model.GiaThueMoiNgay" />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>
